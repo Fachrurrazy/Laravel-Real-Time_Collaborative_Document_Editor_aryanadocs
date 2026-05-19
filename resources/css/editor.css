@@ -1,0 +1,53 @@
+/* Lembar Kertas A4 */
+.paper-sheet {
+    max-width: 210mm;
+    margin: 2rem auto;
+    background: white;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+    min-height: 297mm;
+    padding: 20mm;
+    border-radius: 2px;
+}
+
+/* Editor & Kursor */
+.ProseMirror {
+    outline: none;
+    cursor: text;
+    min-height: 250mm;
+}
+.ProseMirror-focused {
+    border-color: transparent;
+    box-shadow: none;
+}
+.ProseMirror p.is-editor-empty:first-child::before {
+    color: #adb5bd;
+    content: attr(data-placeholder);
+    float: left;
+    height: 0;
+    pointer-events: none;
+}
+
+/* Collaboration Cursor */
+.collaboration-cursor__caret {
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
+    margin-left: -1px;
+    margin-right: -1px;
+    pointer-events: none;
+    position: relative;
+}
+.collaboration-cursor__label {
+    border-radius: 3px 3px 3px 0;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 0.1rem 0.3rem;
+    position: absolute;
+    top: -1.4em;
+    user-select: none;
+}
+
+/* Toolbar Active State */
+.toolbar-btn.active {
+    background-color: #e5e7eb;
+}
