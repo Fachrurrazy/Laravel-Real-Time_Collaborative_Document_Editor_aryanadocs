@@ -12,18 +12,45 @@
     <!-- CSS Custom -->
     <style>
         .paper-sheet {
-            max-width: 210mm;
-            margin: 2rem auto;
+            max-width: 100%;
+            margin: 1rem auto;
             background: white;
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
-            min-height: 297mm;
-            padding: 20mm;
-            border-radius: 2px;
+            min-height: calc(100vh - 230px);
+            padding: 1.25rem;
+            border-radius: 0.5rem;
         }
         .ProseMirror {
             outline: none;
             cursor: text;
-            min-height: 250mm;
+            min-height: 60vh;
+            width: 100%;
+        }
+        .toolbar-btn {
+            min-width: 3rem;
+            touch-action: manipulation;
+        }
+        .collaboration-cursor__label {
+            border-radius: 0.35rem 0.35rem 0.35rem 0;
+            color: #fff;
+            font-size: 10px;
+            font-weight: 600;
+            padding: 0.15rem 0.35rem;
+            position: absolute;
+            top: -1.45em;
+            user-select: none;
+            white-space: nowrap;
+        }
+        @media (min-width: 768px) {
+            .paper-sheet {
+                max-width: 210mm;
+                min-height: 297mm;
+                padding: 20mm;
+                border-radius: 2px;
+            }
+            .ProseMirror {
+                min-height: 250mm;
+            }
         }
         .collaboration-cursor__caret {
             border-left: 2px solid #000;

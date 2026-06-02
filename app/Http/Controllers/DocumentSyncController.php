@@ -62,4 +62,19 @@ class DocumentSyncController extends Controller
 
         return response()->json($activities);
     }
+
+    public function state($id)
+    {
+        $version = DocumentVersion::where('document_id', $id)
+            ->orderByDesc('created_at')
+            ->first();
+
+        if (! $version) {
+            return response()->json(['state' => []], 200);
+        }
+
+        return response()->json([
+            'state' => json_decode($version->state, true),
+        ]);
+    }
 }

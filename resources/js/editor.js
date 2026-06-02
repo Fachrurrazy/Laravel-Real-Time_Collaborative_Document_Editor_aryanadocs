@@ -12,8 +12,16 @@ function initEditor(documentId, userName, userId) {
     const activityState = new Map();
     let activitySaveTimer = null;
 
+    const envWsUrl = import.meta.env.VITE_WS_URL || null;
+    const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+    const wsHost = import.meta.env.VITE_WS_HOST || window.location.hostname;
+    const wsPort = import.meta.env.VITE_WS_PORT || '1234';
+    const wsUrl = envWsUrl || `${protocol}//${wsHost}:${wsPort}`;
+
+    console.info('[editor] connecting WebSocket to', wsUrl);
+
     const provider = new HocuspocusProvider({
-        url: 'ws://localhost:1234',
+        url: wsUrl,
         name: documentId.toString(),
         document: ydoc
     });

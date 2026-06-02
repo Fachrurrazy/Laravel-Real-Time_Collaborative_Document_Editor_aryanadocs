@@ -24,6 +24,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
     
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/documents', function () {
+        return redirect()->route('dashboard');
+    })->name('documents.index');
     
     Route::post('/documents', [DocumentController::class, 'store'])->name('documents.store');
     Route::get('/documents/{id}', [DocumentController::class, 'show'])->name('documents.show');
